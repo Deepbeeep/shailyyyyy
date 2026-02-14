@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Surprise 💕</title>
+
+<style>
+body {
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffe6ea, #ff9aa2);
+  overflow-x:hidden;
+  text-align:center;
+  color:#4a2c2a;
+}
+
+section {
+  height:100vh;
+  width:100%;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  position:relative;
+  padding:30px 20px;
+}
+
+section.active {
+  display:flex;
+  animation: fadeSlide 0.6s ease forwards;
+}
+
+@keyframes fadeSlide {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+.heart {
+  position:fixed;
+  bottom:-20px;
+  font-size:20px;
+  animation: floatUp 6s linear infinite;
+  opacity:0.8;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh);
+    opacity:0;
+  }
+}
+
+button {
+  padding:14px 28px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  margin:10px;
+  transition: all 0.3s ease;
+  position:relative;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+img {
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+img:hover {transform: scale(1.05);}
+
+.gallery {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+  margin-bottom:30px;
+}
+
+.photo-card {
+  width: 200px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.photo-card img {
+  width: 100%;
+  border-radius: 20px;
+  vertical-align: top;
+}
+
+.message {
+  display:none;
+  margin-top:10px;
+  font-size:15px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+.letter-card {
+  background:#fff4f7;
+  padding:40px;
+  border-radius:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  max-width:600px;
+  text-align:left;
+  line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= PAGE 1: Bouquet ================= -->
+<section id="page1" class="active">
+  <img src="bouquet.jpg" style="width:250px; margin-bottom:20px;">
+  <!-- First page button (editable) -->
+  <button id="startBtn">Khol de, khol de! 🌚</button>
+</section>
+
+<!-- ================= PAGE 2: Gallery ================= -->
+<section id="page2">
+  <!-- Top title (editable) -->
+  <h2>A glimpse of Shailyyyyy 🛐</h2>
+
+  <!-- Gallery with 6 photos -->
+  <div class="gallery">
+    <!-- PHOTO 1 -->
+    <div class="photo-card" onclick="toggleMessage(0)">
+      <img src="photo1.jpg">
+      <div class="message">I will never forget the first time I met you, I never knew I could smile this wide. </div> <!-- EDIT -->
+    </div>
+    <!-- PHOTO 2 -->
+    <div class="photo-card" onclick="toggleMessage(1)">
+      <img src="photo2.jpg">
+      <div class="message">The Graduation! Crazy how a 15-day trip turned into almost 3 months 😂. Super proud of you, babyyy!</div> <!-- EDIT -->
+    </div>
+    <!-- PHOTO 3 -->
+    <div class="photo-card" onclick="toggleMessage(2)">
+      <img src="photo3.jpg">
+      <div class="message">Mt karna yaar, soke uthi hu 🥹. I will never stop falling for your eyes and the way you look at me 🫠</div> <!-- EDIT -->
+    </div>
+    <!-- PHOTO 4 -->
+    <div class="photo-card" onclick="toggleMessage(3)">
+      <img src="photo4.jpg">
+      <div class="message">One of your favourite photos, Chortiii 🤣</div> <!-- EDIT -->
+    </div>
+    <!-- PHOTO 5 -->
+    <div class="photo-card" onclick="toggleMessage(4)">
+      <img src="photo5.jpg">
+      <div class="message">This image keeps me sane when you annoy the shit out of me, almost all your photos do🐽</div> <!-- EDIT -->
+    </div>
+    <!-- PHOTO 6 -->
+    <div class="photo-card" onclick="toggleMessage(5)">
+      <img src="photo6.jpg">
+      <div class="message">I remember how excited you got when you wore the ring for the first time, even though it didn’t fit you well. Mera bhonduuuu 🫂❤️</div> <!-- EDIT -->
+    </div>
+  </div>
+
+  <!-- Bottom button / line (editable) -->
+  <button id="toQuestionBtn">Agla sawal aapki screen pai 7 crore k liye 😌</button>
+</section>
+
+<!-- ================= PAGE 3: Valentine Question ================= -->
+<section id="page3">
+  <h1>Will you be my Valentine? ❤️</h1>
+  <button id="yesBtn">Yes 😍</button>
+  <button id="noBtn">No 🙃</button>
+</section>
+
+<!-- ================= PAGE 4: Letter ================= -->
+<section id="page4">
+ <div class="letter-card">
+  <p>Dear Shailyyyyy,</p>
+
+  <p>I still remember the first time I saw you and how we hugged like we had always known each other. It’s been over 12 years of friendship, yet it feels like yesterday.</p>
+
+  <p>I remember all our talks, our fights, and every moment we shared so vividly. I am so grateful for everything you’ve done for me.</p>
+
+  <p>I don’t have many words right now, but I love you — I always have, since the very first day I saw you. Never in my wildest dreams, I imagined we’d even meet, let alone become this close. What were the chances that two kids from different states would randomly meet on a language learning app and stay friends for over 6 years before seeing each other? God really does work in mysterious ways!</p>
+
+  <p>From a random girl I met online to the girl I cannot imagine my life without — we’ve truly come a long way. I love you, baby 🫂❤️, and I’ll always be there for you, no matter what.</p>
+
+  <p>Love,<br>Tera Ganduuu</p>
+</div>
+</section>
+
+<script>
+/* ---------- Section transitions ---------- */
+function showSection(id){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+/* PAGE 1 -> 2 */
+document.getElementById('startBtn').addEventListener('click',()=>{showSection('page2');});
+
+/* PAGE 2 -> 3 */
+document.getElementById('toQuestionBtn').addEventListener('click',()=>{showSection('page3');});
+
+/* ---------- Gallery toggle ---------- */
+function toggleMessage(index){
+  const messages = document.querySelectorAll('.message');
+  messages[index].style.display = messages[index].style.display==='block'?'none':'block';
+}
+
+/* ---------- No button playful behavior ---------- */
+const noBtn = document.getElementById('noBtn');
+const yesBtn = document.getElementById('yesBtn');
+
+/* NO button messages (editable) */
+const noMessages = [
+ "Try again",
+"Really?",
+"No way",
+"Try again",
+"Mt karnaaa",
+"Mu tod duga mai tera",
+"Say Yessssss",
+"Plisss Pliss Pliss"
+];
+
+let noClickCount=0;
+
+noBtn.addEventListener('click',()=>{
+  if(noClickCount<noMessages.length){
+    noBtn.innerText=noMessages[noClickCount];
+    noBtn.style.transform=`scale(${1-0.1*noClickCount})`;
+    yesBtn.style.transform=`scale(${1+0.05*noClickCount})`;
+    const x=Math.random()*(window.innerWidth-100);
+    const y=Math.random()*(window.innerHeight-50);
+    noBtn.style.left=x+'px';
+    noBtn.style.top=y+'px';
+    noClickCount++;
+    if(noClickCount>=noMessages.length){
+      setTimeout(()=>{noBtn.style.display='none';},500);
+    }
+  }
+});
+
+/* ---------- Yes button click ---------- */
+yesBtn.addEventListener('click',()=>{
+  startHearts();
+  setTimeout(()=>{showSection('page4');},800);
+});
+
+/* ---------- Floating hearts ---------- */
+function startHearts(){
+  const interval = setInterval(()=>{
+    const heart=document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML='💖';
+    heart.style.left=Math.random()*100+'vw';
+    heart.style.fontSize=(Math.random()*20+15)+'px';
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+  },200);
+}
+</script>
+
+</body>
+</html>
